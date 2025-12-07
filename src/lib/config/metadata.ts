@@ -6,7 +6,7 @@ export const metadata: Metadata = {
     default: "Harts",
     template: "%s | Harts",
   },
-  description: "Modern web app built with Next.js and Tailwind",
+  description: "",
   metadataBase: new URL("https://harts.example.com"),
   openGraph: {
     images: "/og-image.jpg",

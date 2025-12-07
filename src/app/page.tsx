@@ -1,13 +1,69 @@
-export default function Home() {
+const Home = () =>{
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
+    <>
+      <section>
+        <h1>Home page</h1>
+      </section>
+      <section className="flex mx-auto justify-center">
+        <div className="hover-3d">
+          {/* content */}
+          <figure className="w-60 rounded-2xl">
+            <img
+              src="https://img.daisyui.com/images/stock/card-1.webp?x"
+              alt="Tailwind CSS 3D card"
+            />
+          </figure>
+          {/* 8 empty divs needed for the 3D effect */}
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
         </div>
-      </main>
-    </div>
+
+        <div className="hover-3d">
+          {/* content */}
+          <figure className="w-60 rounded-2xl">
+            <img
+              src="https://img.daisyui.com/images/stock/card-2.webp?x"
+              alt="Tailwind CSS 3D hover"
+            />
+          </figure>
+          {/* 8 empty divs needed for the 3D effect */}
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+
+        <div className="hover-3d">
+          {/* content */}
+          <figure className="w-60 rounded-2xl">
+            <img
+              src="https://img.daisyui.com/images/stock/card-3.webp?x"
+              alt="Tailwind CSS 3D hover"
+            />
+          </figure>
+          {/* 8 empty divs needed for the 3D effect */}
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+          <div></div>
+        </div>
+      </section>
+    </>
   );
 }
+
+export default Home;
