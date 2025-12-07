@@ -8,7 +8,7 @@ const RootShell = ({ children }: { children: React.ReactNode }) => {
     <>
       <NavBar />
       <ScrollProgressBar />
-      <main className="container mx-auto md:px-10 px-6 py-10">
+      <main className="container mx-auto md:px-10 px-6 md:py-10 py-6">
         {children}
       </main>
       <Footer />

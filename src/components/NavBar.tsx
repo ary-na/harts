@@ -1,5 +1,5 @@
 import Link from "next/link";
-import Image from "next/image";
+import { Logo } from "@harts/lib/ui";
 
 const NavBar = () => {
   return (
@@ -41,7 +41,13 @@ const NavBar = () => {
       </div>
       <div className="navbar-center">
         <Link href="/">
-          <Image src="/logo.svg" alt="Logo" width={120} height={120}></Image>
+          <Logo
+            className="cursor-pointer"
+            width={144}
+            height={64}
+            alt="Logo"
+            title="This is Hilda Art's website logo."
+          />
         </Link>
       </div>
       <div className="navbar-end">
@@ -85,6 +91,6 @@ const NavBar = () => {
       </div>
     </div>
   );
-}
+};
 
 export default NavBar;

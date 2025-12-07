@@ -4,11 +4,7 @@ const Contact = () => {
   return (
     <section>
       <h1 className="harts-h1 mb-2">Contact me</h1>
-
-      <p className="mb-5">
-        Send me your commission request, and I’ll get back to you promptly.
-      </p>
-
+      <p className="mb-8">Send me your commission request, and I’ll get back to you promptly.</p>
       <ContactForm />
     </section>
   );

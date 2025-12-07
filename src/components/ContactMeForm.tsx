@@ -1,12 +1,16 @@
+// components/ContactMeForm.tsx
+
 "use client";
 
 import { useState } from "react";
+import Image from "next/image";
 import { useForm } from "react-hook-form";
 import { zodResolver } from "@hookform/resolvers/zod";
-import { contactMeSchema, type ContactMeInput} from "@harts/lib/schemas/ContactMe";
-import Image from "next/image";
+
 import { cn } from "@harts/lib/utils";
 import { FormField, SubmitButton } from "@harts/lib/ui";
+import { contactMeSchema, ContactMeInput } from "@harts/lib/schemas";
+import { error } from "console";
 
 export default function ContactMeForm() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -20,7 +24,7 @@ export default function ContactMeForm() {
     setValue,
   } = useForm<ContactMeInput>({
     resolver: zodResolver(contactMeSchema),
-    mode: "onBlur", // feels snappier than default "onSubmit"
+    mode: "onBlur",
   });
 
   const onSubmit = async (data: ContactMeInput) => {
@@ -57,7 +61,6 @@ export default function ContactMeForm() {
   const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0];
 
-    // Revoke old preview
     if (previewUrl) URL.revokeObjectURL(previewUrl);
 
     if (file) {
@@ -72,15 +75,15 @@ export default function ContactMeForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className="grid gap-8 rounded-2xl border border-white/20 bg-black/30 p-6 backdrop-blur-sm md:p-12"
-      noValidate // prevents native browser validation popups
+      className={cn("grid gap-8 rounded-xl border md:p-10 p-6", (Object.keys(errors).length > 0) && "border-error")}
+      noValidate
     >
-      <div className="grid gap-6 sm:grid-cols-2">
+      <div className="grid gap-6 md:grid-cols-2">
         <FormField label="What is your Name?" error={errors.name?.message}>
           <input
             {...register("name")}
             type="text"
-            placeholder="John Doe"
+            placeholder="Jane Doe"
             className={cn("input w-full", errors.name && "input-error")}
           />
         </FormField>
@@ -101,11 +104,11 @@ export default function ContactMeForm() {
           rows={6}
           placeholder="Tell me about your project, timeline, budget..."
           className={cn(
-            "textarea w-full resize-none",
+            "textarea w-full",
             errors.enquiry && "input-error"
           )}
         />
-        <p className="label mt-2 opacity-80">
+        <p className="label opacity-80">
           The more details you give, the better I can help
         </p>
       </FormField>

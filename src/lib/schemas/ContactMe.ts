@@ -1,11 +1,17 @@
-import * as z from "zod";
+import { z } from "zod";
+
+const nonEmptyEmail = z.string().min(1, { message: "Email is required." });
 
 export const contactMeSchema = z.object({
-  name: z.string().min(1, "Name is required"),
+  name: z.string().min(1, { message: "Name is required." }),
 
-  email: z.email({ message: "Invalid email address" }),
+  email: z
+    .union([nonEmptyEmail])
+    .refine((val) => val === "" || z.email().safeParse(val).success, {
+      message: "Please enter a valid email address.",
+    }),
 
-  enquiry: z.string().min(1, "Enquiry message is required"),
+  enquiry: z.string().min(1, { message: "Enquiry message is required." }),
 
   file: z
     .any()
