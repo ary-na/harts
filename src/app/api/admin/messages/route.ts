@@ -1,25 +1,27 @@
-// import { NextResponse } from "next/server";
-// import { connectToDatabase } from "@harts/lib/db/mongodb";
-// import { ContactMe } from "@harts/lib/models";
-// import { verifyJWT } from "@harts/lib/auth";
+import { NextResponse } from "next/server";
+import { connectToDatabase } from "@harts/lib/db/mongodb";
+import { ContactMe } from "@harts/lib/models";
+import { getServerSession } from "next-auth/next";
 
-// export async function GET(req: Request) {
-//   try {
-//     await connectToDatabase();
+import { authOptions } from "@harts/app/api/auth/[...nextauth]/route";
 
-//     const user = await verifyJWT(req);
+export async function GET() {
+  try {
+    const session = await getServerSession(authOptions);
 
-//     if (typeof user === "object" && user.role !== "admin") {
-//       return NextResponse.json({ message: "Unauthorized" }, { status: 403 });
-//     }
+    if (!session || !session.user) {
+      return NextResponse.json({ message: "Unauthorized" }, { status: 401 });
+    }
 
-//     const messages = await ContactMe.find().sort({ createdAt: -1 });
+    if (session.user.role !== "admin") {
+      return NextResponse.json({ message: "Forbidden" }, { status: 403 });
+    }
 
-//     return NextResponse.json(messages, { status: 200 });
-//   } catch (error: unknown) {
-//     if (error instanceof Error) {
-//       return NextResponse.json({ message: error.message }, { status: 401 });
-//     }
-//     return NextResponse.json({ message: "Error" }, { status: 401 });
-//   }
-// }
+    await connectToDatabase();
+    const messages = await ContactMe.find().sort({ createdAt: -1 });
+
+    return NextResponse.json(messages, { status: 200 });
+  } catch {
+    return NextResponse.json({ message: "Error" }, { status: 500 });
+  }
+}
