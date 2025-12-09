@@ -1,7 +1,6 @@
 // lib/models/ContactMe.ts
 
 import { Schema, models, model } from "mongoose";
-import { de } from "zod/locales";
 
 const ContactMeSchema = new Schema(
   {
