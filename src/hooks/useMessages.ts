@@ -1,5 +1,10 @@
+// src/hooks/useMessages.ts
+
+// React imports
 import { useState, useEffect } from "react";
-import { Message } from "@harts/lib/types";
+
+// Type imports
+import { Message } from "@hart/lib/types";
 
 function useMessages(page: number, limit: number) {
   const [messages, setMessages] = useState<Message[]>([]);

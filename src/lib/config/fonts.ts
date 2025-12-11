@@ -1,4 +1,6 @@
-// lib/fonts.ts
+// src/lib/config/fonts.ts
+
+// Next.js font imports
 import { Geist, Geist_Mono } from "next/font/google";
 
 const geistSans = Geist({

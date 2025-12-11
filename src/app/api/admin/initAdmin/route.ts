@@ -1,9 +1,14 @@
-// app/api/admin/initAdmin/route.ts
+// src/app/api/admin/initAdmin/route.ts
 
+// Next.js imports
 import { NextResponse } from "next/server";
+
+// Mongoose and bcrypt imports
 import mongoose from "mongoose";
 import bcrypt from "bcrypt";
-import { User } from "@harts/lib/models";
+
+// Database model imports
+import { User } from "@hart/server/models";
 
 export async function POST() {
   try {
@@ -16,9 +21,8 @@ export async function POST() {
     const hashedPassword = await bcrypt.hash(password, 10);
 
     const result = await User.findOneAndUpdate(
-      { username }, // search condition
+      { username },
       {
-        // only set if document doesn't exist
         $setOnInsert: {
           username,
           email,

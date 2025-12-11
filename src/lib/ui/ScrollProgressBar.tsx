@@ -1,4 +1,7 @@
+// src/lib/ui/ScrollProgressBar.tsx
 "use client";
+
+// Import necessary hooks from React
 import { useEffect, useState } from "react";
 
 const ScrollProgressBar = () => {

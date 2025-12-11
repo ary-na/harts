@@ -1,4 +1,9 @@
-import { cn } from "@harts/lib/utils";
+// src/lib/ui/SubmitButton.tsx
+
+// Import the cn utility for conditional class names
+import { cn } from "@hart/lib/utils";
+
+// Import the SubmitButtonProps type from the types directory
 import { SubmitButtonProps } from "../types";
 
 export function SubmitButton({
@@ -12,7 +17,7 @@ export function SubmitButton({
       type="submit"
       disabled={isLoading}
       className={cn(
-        "btn btn-primary gap-3",
+        "btn btn-primary ml-auto md:w-auto w-full md:min-w-40",
         isLoading && "cursor-not-allowed opacity-90",
         className
       )}

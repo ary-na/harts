@@ -1,14 +1,24 @@
+// src/components/LoginForm.tsx
+
 "use client";
 
-import { useForm } from "react-hook-form";
-import { zodResolver } from "@hookform/resolvers/zod";
-import { useRouter } from "next/navigation";
+// React and library imports
 import { useState } from "react";
+import { useForm } from "react-hook-form";
+
+// Zod resolver import
+import { zodResolver } from "@hookform/resolvers/zod";
+
+// Next.js import
+import { useRouter } from "next/navigation";
+
+// NextAuth import
 import { signIn } from "next-auth/react";
 
-import { cn } from "@harts/lib/utils";
-import { FormField, SubmitButton } from "@harts/lib/ui";
-import { userLoginSchema, UserLoginInput } from "@harts/lib/schemas";
+// Utility and schema imports
+import { cn } from "@hart/lib/utils";
+import { FormField, SubmitButton } from "@hart/lib/ui";
+import { userLoginSchema, UserLoginInput } from "@hart/lib/schemas";
 
 export default function LoginForm() {
   const [isLoading, setIsLoading] = useState(false);
@@ -46,17 +56,36 @@ export default function LoginForm() {
   });
 
   return (
-    <form onSubmit={onSubmit} className={cn("grid gap-8 rounded-xl border md:p-10 p-6", Object.keys(errors).length > 0 && "border-error")} noValidate>
-      <div className="grid gap-6 md:grid-cols-2">
-        <FormField label="Username" error={errors.username?.message}>
-          <input {...register("username")} type="text" placeholder="Enter your username..." className={cn("input w-full", errors.username && "input-error")} disabled={isLoading} />
-        </FormField>
-        <FormField label="Password" error={errors.password?.message}>
-          <input {...register("password")} type="password" placeholder="Enter your password..." className={cn("input w-full", errors.password && "input-error")} disabled={isLoading} />
-        </FormField>
-      </div>
+    <form
+      onSubmit={onSubmit}
+      className="grid gap-4 rounded-xl border md:p-10 p-6"
+      noValidate
+    >
+      <FormField label="Username" error={errors.username?.message}>
+        <input
+          {...register("username")}
+          type="text"
+          placeholder="Enter your username..."
+          className={cn("input w-full", errors.username && "input-error")}
+          disabled={isLoading}
+        />
+      </FormField>
+      <FormField label="Password" error={errors.password?.message}>
+        <input
+          {...register("password")}
+          type="password"
+          placeholder="Enter your password..."
+          className={cn("input w-full", errors.password && "input-error")}
+          disabled={isLoading}
+        />
+      </FormField>
+
       {error && <p className="text-error text-center mt-2">{error}</p>}
-      <SubmitButton isLoading={isLoading} text="Login" loadingText="Logging in..." />
+      <SubmitButton
+        isLoading={isLoading}
+        text="Login"
+        loadingText="Logging in..."
+      />
     </form>
   );
 }

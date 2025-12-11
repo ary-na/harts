@@ -1,9 +1,16 @@
+// src/app/api/admin/messages/route.ts
+
+// Next.js imports
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@harts/lib/db/mongodb";
-import { ContactMe } from "@harts/lib/models";
+
+// NextAuth imports
 import { getServerSession } from "next-auth/next";
 
-import { authOptions } from "@harts/app/api/auth/[...nextauth]/route";
+// Database and model imports
+import { ContactMe } from "@hart/server/models";
+import { connectToDatabase } from "@hart/server/db/mongodb";
+
+import { authOptions } from "@hart/server/auth/nAuth";
 
 export async function GET() {
   try {

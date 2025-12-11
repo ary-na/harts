@@ -1,3 +1,4 @@
+// src/lib/types/SubmitButton.ts
 export type SubmitButtonProps = {
   text?: string;
   loadingText?: string;
