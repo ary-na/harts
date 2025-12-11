@@ -1,6 +1,9 @@
-// src/lib/models/User.ts
+// src/server/models/User.ts
 
+// Mongoose imports
 import { Schema, models, model } from "mongoose";
+
+// Bcrypt import for password hashing
 import bcrypt from "bcrypt";
 
 const UserSchema = new Schema(

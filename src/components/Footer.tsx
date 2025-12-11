@@ -1,12 +1,24 @@
+// src/components/Footer.tsx
+
+// Next.js import
 import Link from "next/link";
+
 const Footer = () => {
   return (
-    <footer className="footer footer-horizontal footer-center text-base-content rounded p-10">
+    <footer className="footer footer-horizontal bg-amber-400 footer-center text-base-content rounded p-10">
       <nav className="grid grid-flow-col gap-4">
-        <Link href="/" className="link link-hover">Home</Link>
-        <Link href="/shop" className="link link-hover">Shop</Link>
-        <Link href="/about" className="link link-hover">About</Link>
-        <Link href="/contact" className="link link-hover">Contact</Link>
+        <Link href="/" className="link link-hover">
+          Home
+        </Link>
+        <Link href="/shop" className="link link-hover">
+          Shop
+        </Link>
+        <Link href="/about" className="link link-hover">
+          About
+        </Link>
+        <Link href="/contact" className="link link-hover">
+          Contact
+        </Link>
       </nav>
       <nav>
         <div className="grid grid-flow-col gap-4">
@@ -47,11 +59,12 @@ const Footer = () => {
       </nav>
       <aside>
         <p>
-          Copyright © {new Date().getFullYear()} - All right reserved by HOK Studios
+          Copyright © {new Date().getFullYear()} - All right reserved by Hilda
+          ART
         </p>
       </aside>
     </footer>
   );
-}
+};
 
 export default Footer;

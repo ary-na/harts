@@ -1,3 +1,4 @@
+/* src/lib/styles/globals.css */
 @import "tailwindcss";
 @plugin "daisyui";
 @import "./variables-light.css";
@@ -21,6 +22,27 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-.harts-h1 {
-  @apply text-4xl font-bold;
+h1 {
+  @apply text-4xl font-bold mb-4;
+}
+
+h2 {
+  @apply text-3xl font-bold mb-3;
+}
+
+h3 {
+  @apply text-2xl font-bold mb-2;
+}
+
+p {
+  @apply leading-8 text-justify;
+}
+
+article {
+  section {
+      @apply mb-15;
+  }
+  ul {
+      @apply list-disc pl-10 leading-6;
+  }
 }

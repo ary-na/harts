@@ -1,3 +1,4 @@
+/* src/lib/styles/variables-dark.css */
 @media (prefers-color-scheme: dark) {
   :root {
     --background: #00111c;

@@ -1,4 +1,6 @@
-// lib/metadata.ts
+// src/lib/config/metadata.ts
+
+// Next.js type imports
 import type { Metadata } from "next";
 
 export const metadata: Metadata = {

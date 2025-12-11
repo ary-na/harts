@@ -1,4 +1,6 @@
-// src/components/Logo.tsx   (or app/components/Logo.tsx)
+// src/lib/ui/Logo.tsx
+
+// Import the SvgIconProps type from the types directory
 import { SvgIconProps } from "../types/SvgIcon";
 
 export function Logo({

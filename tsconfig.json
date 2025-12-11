@@ -20,7 +20,9 @@
       }
     ],
     "paths": {
-      "@harts/*": ["./src/*"]
+      "@hart/*": ["./src/*"],
+      "@hart/server/*": ["./src/server/*"],
+      "@hart/components/*": ["./src/components/*"]
     }
   },
   "include": [

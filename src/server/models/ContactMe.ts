@@ -1,7 +1,7 @@
-// lib/models/ContactMe.ts
+// src/server/models/ContactMe.ts
 
+// Mongoose imports
 import { Schema, models, model } from "mongoose";
-import { de } from "zod/locales";
 
 const ContactMeSchema = new Schema(
   {
@@ -31,4 +31,5 @@ const ContactMeSchema = new Schema(
   { timestamps: true }
 );
 
-export const ContactMe = models.ContactMe || model("ContactMe", ContactMeSchema);
+export const ContactMe =
+  models.ContactMe || model("ContactMe", ContactMeSchema);

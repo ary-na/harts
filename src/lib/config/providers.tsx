@@ -1,6 +1,7 @@
-// lib/Providers.tsx
+// src/lib/config/providers.tsx
 "use client";
 
+// Theme provider import
 import { ThemeProvider } from "next-themes";
 
 const Providers = ({ children }: { children: React.ReactNode }) => {

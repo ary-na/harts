@@ -1,4 +1,6 @@
-// src/lib/upload/s3.ts
+// src/server/upload/s3.ts
+
+// AWS SDK imports
 import { S3Client, PutObjectCommand } from "@aws-sdk/client-s3";
 
 const REGION = process.env.AWS_REGION!;
@@ -13,15 +15,6 @@ const s3 = new S3Client({
   },
 });
 
-/**
- * Uploads a file buffer to S3 and returns the file URL.
- * Files will be private (no public-read ACL).
- *
- * @param fileBuffer - Buffer containing file data
- * @param fileName - Desired key/name in the bucket (e.g., "uploads/myimage.png")
- * @param contentType - MIME type of the file (e.g., "image/png")
- * @returns URL string to the file in the bucket (private access)
- */
 export async function uploadFileToS3(
   fileBuffer: Buffer,
   fileName: string,

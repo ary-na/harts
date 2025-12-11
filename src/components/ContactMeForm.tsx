@@ -1,15 +1,21 @@
-// components/ContactMeForm.tsx
+// src/components/ContactMeForm.tsx
 
 "use client";
 
+// React and library imports
 import { useState } from "react";
-import Image from "next/image";
 import { useForm } from "react-hook-form";
+
+// Next.js import
+import Image from "next/image";
+
+// Zod resolver import
 import { zodResolver } from "@hookform/resolvers/zod";
 
-import { cn } from "@harts/lib/utils";
-import { FormField, SubmitButton } from "@harts/lib/ui";
-import { contactMeSchema, ContactMeInput } from "@harts/lib/schemas";
+// Utility and schema imports
+import { cn } from "@hart/lib/utils";
+import { FormField, SubmitButton } from "@hart/lib/ui";
+import { contactMeSchema, ContactMeInput } from "@hart/lib/schemas";
 
 export default function ContactMeForm() {
   const [previewUrl, setPreviewUrl] = useState<string | null>(null);
@@ -36,7 +42,10 @@ export default function ContactMeForm() {
     if (data.file?.[0]) formData.append("file", data.file[0]);
 
     try {
-      const res = await fetch("/api/contact", { method: "POST", body: formData });
+      const res = await fetch("/api/contact", {
+        method: "POST",
+        body: formData,
+      });
 
       if (res.ok) {
         alert("Message sent successfully!");
@@ -71,38 +80,35 @@ export default function ContactMeForm() {
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className={cn("grid gap-8 rounded-xl border md:p-10 p-6", (Object.keys(errors).length > 0) && "border-error")}
+      className="grid gap-8 rounded-xl border md:p-10 p-6 container mx-auto max-w-xl"
       noValidate
     >
       <div className="grid gap-6 md:grid-cols-2">
-        <FormField label="What is your Name?" error={errors.name?.message}>
+        <FormField label="Name" error={errors.name?.message}>
           <input
             {...register("name")}
             type="text"
-            placeholder="Jane Doe"
+            placeholder="Enter your name..."
             className={cn("input w-full", errors.name && "input-error")}
           />
         </FormField>
 
-        <FormField label="What is your Email?" error={errors.email?.message}>
+        <FormField label="Email" error={errors.email?.message}>
           <input
             {...register("email")}
             type="email"
-            placeholder="you@example.com"
+            placeholder="Enter your email..."
             className={cn("input w-full", errors.email && "input-error")}
           />
         </FormField>
       </div>
 
-      <FormField label="What is your Enquiry?" error={errors.enquiry?.message}>
+      <FormField label="Enquiry" error={errors.enquiry?.message}>
         <textarea
           {...register("enquiry")}
           rows={6}
           placeholder="Tell me about your project, timeline, budget..."
-          className={cn(
-            "textarea w-full",
-            errors.enquiry && "input-error"
-          )}
+          className={cn("textarea w-full", errors.enquiry && "input-error")}
         />
         <p className="label opacity-80">
           The more details you give, the better I can help
@@ -110,7 +116,7 @@ export default function ContactMeForm() {
       </FormField>
 
       <FormField
-        label="Upload reference images (optional)"
+        label="Upload image (optional)"
         error={(errors.file?.message as string) || undefined}
       >
         <input
@@ -121,7 +127,7 @@ export default function ContactMeForm() {
           className="file-input w-full"
         />
         <p className="label mt-2 text-sm opacity-75">
-          Max 10 MB • JPG, PNG, GIF, WebP
+          Max 20 MB • JPG, PNG, GIF, WebP
         </p>
 
         {previewUrl && (
@@ -140,7 +146,7 @@ export default function ContactMeForm() {
 
       <SubmitButton
         isLoading={isLoading}
-        text="Send Message"
+        text="Send"
         loadingText="Sending..."
       />
     </form>

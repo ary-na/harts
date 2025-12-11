@@ -1,3 +1,4 @@
+// src/lib/types/Message.ts
 export interface Message {
   _id: string;
   name: string;

@@ -1,10 +1,15 @@
 // src/app/api/contact/route.ts
 
+// Next.js imports
 import { NextResponse } from "next/server";
-import { connectToDatabase } from "@harts/lib/db/mongodb";
-import { ContactMe } from "@harts/lib/models";
-import { generateFileName } from "@harts/lib/utils";
-import { uploadFileToS3 } from "@harts/lib/upload";
+
+// Database and model imports
+import { ContactMe } from "@hart/server/models";
+import { connectToDatabase } from "@hart/server/db/mongodb";
+
+// Utility and upload imports
+import { generateFileName } from "@hart/lib/utils";
+import { uploadFileToS3 } from "@hart/server/upload/s3";
 
 export async function POST(req: Request) {
   try {
