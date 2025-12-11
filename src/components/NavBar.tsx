@@ -6,6 +6,10 @@ import Link from "next/link";
 // UI imports
 import { Logo } from "@hart/lib/ui";
 
+// Font Awesome imports
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faUser } from "@fortawesome/free-solid-svg-icons";
+
 const NavBar = () => {
   return (
     <div className="navbar">
@@ -43,15 +47,7 @@ const NavBar = () => {
               <Link href="/shop">Shop</Link>
             </li>
             <li>
-              <a>About</a>
-              <ul className="p-2">
-                <li>
-                  <Link href="/about">About</Link>
-                </li>
-                <li>
-                  <Link href="/privacy">Privacy</Link>
-                </li>
-              </ul>
+              <Link href="/about">About</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
@@ -68,17 +64,7 @@ const NavBar = () => {
               <Link href="/shop">Shop</Link>
             </li>
             <li>
-              <details>
-                <summary>About</summary>
-                <ul className="p-2 bg-base-100 w-40 z-1">
-                  <li>
-                    <Link href="/about">About</Link>
-                  </li>
-                  <li>
-                    <Link href="/privacy">Privacy</Link>
-                  </li>
-                </ul>
-              </details>
+              <Link href="/about">About</Link>
             </li>
             <li>
               <Link href="/contact">Contact</Link>
@@ -98,7 +84,7 @@ const NavBar = () => {
           />
         </Link>
       </div>
-      <div className="navbar-end">
+      <div className="navbar-end flex gap-2">
         <div className="dropdown dropdown-end">
           <div tabIndex={0} role="button" className="btn btn-ghost btn-circle">
             <div className="indicator">
@@ -137,10 +123,11 @@ const NavBar = () => {
           <div
             tabIndex={0}
             role="button"
-            className="btn btn-ghost btn-circle avatar"
+            className="btn btn-ghost btn-circle avatar flex items-center justify-center h-10 w-10"
           >
-            <div className="w-10 rounded-full"></div>
+            <FontAwesomeIcon icon={faUser} width="20" />
           </div>
+
           <ul
             tabIndex={-1}
             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow"

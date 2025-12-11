@@ -2,15 +2,15 @@
 const Privacy = () => {
   return (
     <article>
-      <header className="bg-orange-500 mb-2 py-20">
-        <div className="container mx-auto">
-        <h1 className="hart-h1">Privacy & Data Policy</h1>
+      <header className= "bg-amber-400">
+        <div className="container mx-auto max-w-3xl py-20 px-8 lg:px-0">
+        <h1>Privacy & Data Policy 🔐</h1>
         <p className="italic text-sm">Last updated: December 2025</p>
         </div>
       </header>
-    <div className="container mx-auto pt-10">
-      <section className="mb-2">
-        <h2 className="hart-h2">1. Introduction</h2>
+    <div className="container mx-auto max-w-3xl py-10 px-8 lg:px-0">
+      <section>
+        <h2>1. Introduction 📖</h2>
         <p>
           Welcome to <strong>Harts</strong> (the “Site”, “we”, “us”, or “our”).
           This Privacy & Data Policy explains how we collect, use, disclose, and
@@ -24,11 +24,11 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">2. What Data We Collect</h2>
+      <section>
+        <h2>2. What Data We Collect 🗃️</h2>
 
-        <section className="mb-2">
-          <h3 className="hart-h3">2.1 Data You Provide</h3>
+        <section>
+          <h3>2.1 Data You Provide 📝</h3>
           <p>
             When you use Harts (e.g., sign up, log in, purchase, contact us), we
             may collect:
@@ -61,7 +61,7 @@ const Privacy = () => {
         </section>
 
         <section>
-          <h3 className="hart-h3">2.2 Automatically Collected Data</h3>
+          <h3>2.2 Automatically Collected Data 🤖</h3>
           <p>When you visit the Site, we may automatically collect:</p>
           <ul>
             <li>
@@ -85,8 +85,8 @@ const Privacy = () => {
         </section>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">3. Why We Collect the Data (Purposes)</h2>
+      <section>
+        <h2>3. Why We Collect the Data 📌</h2>
         <p>We use the collected data for:</p>
         <ul>
           <li>
@@ -124,8 +124,8 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">4. Legal &amp; Compliance Considerations</h2>
+      <section>
+        <h2>4. Legal &amp; Compliance Considerations ⚖️</h2>
         <p>
           Depending on your location or the location of the user, relevant
           data‑protection laws may apply (e.g. Privacy Act 1988 (Cth) &amp;
@@ -139,8 +139,8 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">5. Data Sharing and Disclosure</h2>
+      <section>
+        <h2>5. Data Sharing and Disclosure 🤝</h2>
         <p>We may share your data only in the following circumstances:</p>
         <ul>
           <li>
@@ -170,8 +170,8 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">6. Cookies &amp; Tracking Technologies</h2>
+      <section>
+        <h2>6. Cookies &amp; Tracking Technologies 🍪</h2>
         <p>We use cookies and similar technologies for:</p>
         <ul>
           <li>Session management (keeping you logged in).</li>
@@ -185,8 +185,8 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">7. Data Storage &amp; Security</h2>
+      <section>
+        <h2>7. Data Storage &amp; Security 🛡️</h2>
         <ul>
           <li>
             We store your data securely using industry‑standard encryption and
@@ -209,8 +209,8 @@ const Privacy = () => {
         </ul>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">8. Data Retention &amp; Deletion</h2>
+      <section>
+        <h2>8. Data Retention &amp; Deletion ⏳</h2>
         <p>
           We keep your account and order data as long as you maintain your
           account.
@@ -225,8 +225,8 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">9. Your Rights</h2>
+      <section>
+        <h2>9. Your Rights ✋</h2>
         <p>Depending on your jurisdiction, you may have the right to:</p>
         <ul>
           <li>Access personal data we hold about you.</li>
@@ -242,8 +242,8 @@ const Privacy = () => {
         </p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">10. Age &amp; Children Policy</h2>
+      <section>
+        <h2>10. Age &amp; Children Policy 🚫</h2>
         <p>Harts is intended for users 13 years old and above.</p>
         <p>
           We do <strong>not knowingly</strong> collect personal data from
@@ -252,8 +252,8 @@ const Privacy = () => {
         <p>If we become aware of such data, we will promptly delete it.</p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">11. International Transfer of Data</h2>
+      <section>
+        <h2>11. International Transfer of Data 🌍</h2>
         <p>
           Your information may be stored and processed in servers located
           outside your country (e.g. hosted on Vercel, databases in US/Asia,
@@ -263,21 +263,21 @@ const Privacy = () => {
         <p>We maintain adequate safeguards to protect your data.</p>
       </section>
 
-      <section className="mb-2">
-        <h2 className="hart-h2">12. Changes to This Policy</h2>
+      <section>
+        <h2>12. Changes to This Policy 🔄</h2>
         <p>
           We may update this Privacy Policy from time to time (for example, if
           we change data‑handling practices, or legal requirements change).
         </p>
         <p>When we do, we will update the “Last updated” date.</p>
         <p>
-          We recommend you review this page periodically. Continued use of Harts
+          We recommend you review this page periodically. Continued use of Hart
           after changes will mean you accept the new policy.
         </p>
       </section>
 
       <section>
-        <h2 className="hart-h2">13. Contact Us</h2>
+        <h2>13. Contact Us ✉️</h2>
         <p>
           If you have questions, concerns, or want to exercise your data rights,
           contact us at:
@@ -291,9 +291,6 @@ const Privacy = () => {
             >
               admin@hart.com
             </a>
-          </li>
-          <li>
-            <strong>Address:</strong> P.O. Box 1200, Sydney, NSW, Australia
           </li>
         </ul>
       </section>
