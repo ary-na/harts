@@ -2,19 +2,26 @@
 "use client";
 
 import { useEffect, useRef } from "react";
-import useMessages from "@hart/hooks/useMessages";
+import { useMessages } from "@hart/hooks/useMessages";
 import Image from "next/image";
 import Link from "next/link";
 
 export default function AdminMessagesPage() {
-  const { messages, loading, fetchMessages, error } = useMessages();
+  const {
+    messages,
+    loading,
+    error,
+    deletingIds,     // ← New: tracks which messages are being deleted
+    fetchMessages,
+    deleteMessage,   // ← New: use the hook's delete function
+  } = useMessages();
+
   const didInitialLoad = useRef(false);
 
-  // ✅ Initial fetch (runs once, even in Strict Mode)
+  // Initial fetch (runs once, even in Strict Mode)
   useEffect(() => {
     if (didInitialLoad.current) return;
     didInitialLoad.current = true;
-
     fetchMessages({ append: false });
   }, [fetchMessages]);
 
@@ -22,24 +29,10 @@ export default function AdminMessagesPage() {
     await fetchMessages({ append: true });
   };
 
-  const handleDelete = async (id: string) => {
+  // New: Confirm + delete using the hook
+  const handleDelete = (id: string) => {
     if (!confirm("Are you sure you want to delete this message?")) return;
-
-    try {
-      const res = await fetch(`/api/admin/messages/${id}`, {
-        method: "DELETE",
-      });
-
-      if (!res.ok) {
-        const text = await res.text().catch(() => "");
-        throw new Error(text || "Failed to delete message");
-      }
-
-      // Reload from scratch after delete
-      await fetchMessages({ append: false });
-    } catch (err) {
-      alert(`Delete failed: ${(err as Error).message}`);
-    }
+    deleteMessage(id);
   };
 
   return (
@@ -58,7 +51,7 @@ export default function AdminMessagesPage() {
       </div>
 
       {error && <p className="text-red-600 mb-4">{error.message}</p>}
-      {loading && <p className="mb-4">Loading messages...</p>}
+      {loading && messages.length === 0 && <p className="mb-4">Loading messages...</p>}
 
       <div className="space-y-4">
         {messages.length === 0 && !loading && (
@@ -91,9 +84,9 @@ export default function AdminMessagesPage() {
             <button
               className="btn btn-danger mt-4"
               onClick={() => handleDelete(msg._id)}
-              disabled={loading}
+              disabled={deletingIds.has(msg._id)}  // ← Disable while deleting
             >
-              Delete
+              {deletingIds.has(msg._id) ? "Deleting..." : "Delete"}
             </button>
 
             <p className="text-sm text-gray-500 mt-2">
@@ -103,13 +96,13 @@ export default function AdminMessagesPage() {
         ))}
       </div>
 
-      {messages.length > 0 && !loading && (
+      {messages.length > 0 && (
         <button
           onClick={handleLoadMore}
           disabled={loading}
           className="btn btn-secondary mt-6"
         >
-          Load More
+          {loading ? "Loading more..." : "Load More"}
         </button>
       )}
     </section>
